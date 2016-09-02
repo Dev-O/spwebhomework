@@ -90,23 +90,19 @@
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-surefire-plugin</artifactId>
 			<configuration>
-				<skipTests>${unit-tests.skip}</skipTests>
-	
+			<skipTests>${unit-tests.skip}</skipTests>
 		<skipTests>${integration-tests.skip}</skipTests>
-		<!--  
+	
     <excludes>
       <exclude>**/*Documentation.java</exclude>
-    </excludes> -->
-			</configuration>
-		</plugin>
-		<plugin> 
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<configuration>
+    </excludes> 
+    <!--
 				<includes>
 					<include>**/*Documentation.java</include>
 				</includes>
+				-->
 			</configuration>
+			
 		</plugin>
 		<plugin> 
 			<groupId>org.asciidoctor</groupId>

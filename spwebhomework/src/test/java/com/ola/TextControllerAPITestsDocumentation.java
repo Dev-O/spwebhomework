@@ -47,7 +47,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 	 	@Rule
 		public JUnitRestDocumentation restDocumentation =
 				new JUnitRestDocumentation("target/generated-snippets");
-		private MockMvc mockMvc;
+		
+	 	private MockMvc mockMvc;
 		
 		@Autowired
 	    private WebApplicationContext webApplicationContext;
@@ -98,7 +99,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 		
 	@Test
 	public void createAndsendUserTextTest() throws Exception {
-		//String toput = "?text" + "=How are you" +"&" + "userName" + "=olammon";
 		MultiValueMap<String,String> paramVal= new   LinkedMultiValueMap<String, String>();
 	    String textWord = "How are you";
 	    String resText = "olammon";
@@ -113,11 +113,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 						fieldWithPath("text").description("The user's texts"), 
 						fieldWithPath("userName").description("The user's handle"),
 						fieldWithPath("timePosted").description("The time Text was Posted"),
-						fieldWithPath("responseText").ignored(),
-						fieldWithPath("city").ignored(),
-						fieldWithPath("cityLong").ignored(),
-						fieldWithPath("cityLat").ignored(),
-						fieldWithPath("cityTemp").ignored(),
 						fieldWithPath("oid").ignored()),
 						requestParameters( 
 								parameterWithName("text").description("The text to return")
@@ -136,48 +131,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 	       .andExpect(jsonPath("$", hasSize(3)));
 													
 	}
-	@Test
-	public void UpdateUserTextWithResponseTest() throws Exception {
-
-		//MultiValueMap<String,String> paramVal= new   LinkedMultiValueMap<String, String>();
-	    String textId = fOid.toString();
-	    String resText = "I see you too";
-	    mockMvc.perform(patch("/texts/" +textId).param("responseText", resText))
-	    .andExpect(status().isOk())
-	       .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-			.andDo(document("texts", responseFields(
-					fieldWithPath("userName").ignored(),
-					fieldWithPath("text").ignored(),
-					fieldWithPath("timePosted").ignored(),
-					fieldWithPath("responseText").ignored(),
-					fieldWithPath("city").ignored(),
-					fieldWithPath("cityLong").ignored(),
-					fieldWithPath("cityLat").ignored(),
-					fieldWithPath("cityTemp").ignored(),
-					fieldWithPath("oid").ignored()),
-					requestParameters( 
-							parameterWithName("responseText").description("The handle of the user"))
-				  ));									
-	}
-
-
+	
 	@Test
 	public void getSpecificUserTextsTest() throws Exception {
 	  String userName = "shannon";
-		mockMvc.perform(get("/texts/" +userName))
+		mockMvc.perform(get("/texts/" +userName ))
 	   .andExpect(status().isOk())
 	          .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 	          .andExpect(jsonPath("$", hasSize(2)))
 				.andDo(document("texts", responseFields(
-						
 						fieldWithPath("[].userName").ignored(),
 						fieldWithPath("[].text").ignored(),
 						fieldWithPath("[].timePosted").ignored(),
-						fieldWithPath("[].responseText").ignored(),
-						fieldWithPath("[].city").ignored(),
-						fieldWithPath("[].cityLong").ignored(),
-						fieldWithPath("[].cityLat").ignored(),
-						fieldWithPath("[].cityTemp").ignored(),
+						fieldWithPath("[].links").ignored(),
 						fieldWithPath("[].oid").ignored())
 						  ));
 		

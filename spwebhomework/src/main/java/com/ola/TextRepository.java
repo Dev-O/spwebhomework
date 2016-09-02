@@ -1,19 +1,14 @@
 package com.ola;
 
 import java.util.List;
-import java.sql.Timestamp;
-
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-
+@Repository
 
 	public interface TextRepository extends CrudRepository<TextModel, Long> {
 
@@ -27,13 +22,9 @@ import org.slf4j.LoggerFactory;
 				 
 		 public TextModel findByOid(Long textId);
  
-		 @Query("SELECT t FROM Text t where t.oid IS NOT NULL")
+		 @Query("SELECT t FROM TextModel t where t.oid IS NOT NULL")
 		 public List<TextModel> findAllTexts();
 		  
-		    @Modifying(clearAutomatically = false)
-		    @Transactional
-		    @Query("UPDATE Text t SET t.responseText = :responseText WHERE t.oid = :toid")
-		    int updateResponseText(@Param("toid") Long toid, @Param("responseText") String responseText);
-		}
+}
 
 

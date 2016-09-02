@@ -50,7 +50,7 @@ public class TextControllerTests extends SpwebhomeworkApplicationTests{
 		    Timestamp timestamp = new Timestamp(time);
 	    	String texton = "I am here";
 	    	String userNamere = "pala";
-	    	TextModel myText = new TextModel (texton, userNamere,timestamp);		
+	    	TextModel myText = new TextModel (userNamere, texton, timestamp);		
 	    	when(textServiceMock.saveText(myText)).thenReturn(myText);
 	    	String texton1 = "I am here";
 	    	String userNamere1 = "pala";

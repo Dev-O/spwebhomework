@@ -29,21 +29,29 @@ public class TextModel extends ResourceSupport {
 	private Long oid;
 	
 	@Column(name="TEXT_POSTED", nullable=false,updatable=false)
-	private  String text;
+	public   String text;
 	
 	@Column(name="USER_NAME", nullable=false,updatable=false)
-	private  String userName;
+	public  String userName;
 	
 	@NotNull
 	@Column(name="TIME_CREATED", nullable=false,updatable=false)
-	private Timestamp timePosted;
+	public Timestamp timePosted;
 	
+	/*
 	 @JsonCreator
 	    public TextModel(@JsonProperty("userName") String userName, @JsonProperty("text") String text, @JsonProperty("timePosted") Timestamp timePosted) {   
 	        this.text= text ;
 	        this.userName = userName;
 	        this.timePosted = timePosted;
 	    }
+	    */
+	
+	public TextModel(String userName, String text, Timestamp timePosted) {   
+        this.text= text ;
+        this.userName = userName;
+        this.timePosted = timePosted;
+        }
 	public TextModel(){
 		
 			
