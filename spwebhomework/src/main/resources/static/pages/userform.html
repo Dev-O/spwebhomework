@@ -11,6 +11,13 @@
     <input type="text" name="text" class="form-control" placeholder="Hi there" ng-model="formValues.text" ng-required="true"></input>
     <p ng-show="textForm.text.$invalid && !textForm.text.$pristine && submitted" class="help-block">Send some Greeting.</p>
   </div>
+  
+  <!-- User Name --> 
+ <div id="name-group" class="form-group" ng-class="{'has-error': textForm.userName.$invalid && !textForm.userName.$pristine && submitted}">
+    <label>User Name :</label>
+    <input type="text" name="userName" class="form-control" placeholder="Hi there" ng-model="formValues.userName" ng-required="true"></input>
+    <p ng-show="textForm.userName.$invalid && !textForm.userName.$pristine && submitted" class="help-block"> Enter user name.</p>
+  </div>
  
 
   <button type="submit" class="btn btn-primary btn-md">
