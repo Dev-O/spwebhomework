@@ -21,7 +21,7 @@ public class TextController {
 	@Autowired
 	TextingService textService;
 	
-	@RequestMapping(method = RequestMethod.GET, 
+	@RequestMapping(method = RequestMethod.POST, 
             produces = "application/json; charset=UTF-8")
     public  ResponseEntity<TextModel> getNdReturnUserText(
     		@RequestParam(value = "text", required = true) String userSentText)

@@ -9,7 +9,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.web.WebAppConfiguration;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -39,7 +40,7 @@ public class TextControllerTests extends SpwebhomeworkApplication{
 	    	TextModel textModel = new TextModel();
 	    	textModel.setText(txt);
 	    	when(textServiceMock.sendText(txt)).thenReturn(textModel);
-	    	mockMvc.perform(get("/texts").param("text" , txt))
+	    	mockMvc.perform(post("/texts").param("text" , txt))
 	         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 		        .andExpect(status().isCreated())
 		        .andExpect(jsonPath("$.text").value("I am here"));    	

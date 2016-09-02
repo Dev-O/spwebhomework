@@ -1,0 +1,23 @@
+<div ng-app="textAppp" ng-controller="formController">
+
+<div id="messages" ng-show="message">{{message}}</div> 
+ 
+  <!-- Form Section-->
+<form role="form" name="textForm"  ng-submit="processForm(textForm.$valid)" novalidate="">
+  
+ <!-- Enter Text --> 
+ <div id="name-group" class="form-group" ng-class="{'has-error': textForm.text.$invalid && !textForm.text.$pristine && submitted}">
+    <label>Send Text :</label>
+    <input type="text" name="text" class="form-control" placeholder="Hi there" ng-model="formValues.text" ng-required="true"></input>
+    <p ng-show="textForm.text.$invalid && !textForm.text.$pristine && submitted" class="help-block">Send some Greeting.</p>
+  </div>
+ 
+
+  <button type="submit" class="btn btn-primary btn-md">
+     Submit!</button>   <br></br> 
+</form>
+<p ng-model="responseData">{{responseData}}</p>
+<br></br>
+</div>
+
+
