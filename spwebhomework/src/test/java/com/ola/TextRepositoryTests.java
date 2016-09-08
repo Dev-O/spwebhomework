@@ -44,8 +44,8 @@ public class TextRepositoryTests extends SpwebhomeworkApplicationTests {
 		long time3 = System.currentTimeMillis();
 	    Timestamp timestamp3 = new Timestamp(time3);
 	    textRepository.save(new TextModel("Arnold", "Hello Arnold",timestamp3));
-		 List<TextModel> listOfTexts = new ArrayList<TextModel>();
-		 listOfTexts  = textRepository.findAllTexts();
+		List<TextModel> listOfTexts = new ArrayList<TextModel>();
+		listOfTexts  = textRepository.findAllTexts();
 	     
     Iterable<TextModel> x = textRepository.findAll();
     for(TextModel y : x){

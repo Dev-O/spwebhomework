@@ -21,8 +21,24 @@
  
 
   <button type="submit" class="btn btn-primary btn-md">
-     Submit!</button>   <br></br> 
+     Submit!</button><br></br> 
+    
 </form>
+ <ul ng-repeat= "user in arrayOfUsers" style="list-style-type: none; ">
+     <div style ="border : 3px solid">
+     <li>
+     {{user.first_name}}
+     </li> 
+     <li>
+     {{user.last_name}}
+     </li> 
+     <li>
+     {{user.hobby}}
+     </li> 
+     <li>
+     {{user.id}}
+     </li> </div>
+     </ul>   
 <p ng-model="responseData">{{responseData}}</p>
 <br></br>
 <div class="bs-component">

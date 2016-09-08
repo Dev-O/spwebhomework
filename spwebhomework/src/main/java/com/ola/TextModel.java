@@ -39,6 +39,9 @@ public class TextModel extends ResourceSupport {
 	@Column(name="TIME_CREATED", nullable=false,updatable=false)
 	public Timestamp timePosted;
 	
+	
+	@Column(name="TEXT_RESPONSE", nullable=false,updatable=false)
+	public String textResponse;
 	/*
 	 @JsonCreator
 	    public TextModel(@JsonProperty("userName") String userName, @JsonProperty("text") String text, @JsonProperty("timePosted") Timestamp timePosted) {   
