@@ -1,11 +1,6 @@
-var textAppp = angular.module('textAppp', ['ngRoute','ngMessages']);
+var textAppp = angular.module('textAppp', ['ngRoute','ngMessages','angularUtils.directives.dirPagination']);
 textAppp.config(function($routeProvider) {
   $routeProvider
-  .when('/', {
-    templateUrl : 'index.html',
-    controller  : 'formController'
-  })
-
   .when('/userform', {
     templateUrl : 'pages/userform.html',
     controller  : 'formController'

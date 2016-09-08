@@ -46,6 +46,7 @@ public class TextController {
 	//	logger.debug("the value is as follow :" + txt);
 		TextModel txt = textService.saveText(usertext);
 		logger.debug("the value is as follow :" + txt);
+		
 	        return new ResponseEntity<TextModel>(txt ,responseHeaders, HttpStatus.CREATED);
 	    }
 

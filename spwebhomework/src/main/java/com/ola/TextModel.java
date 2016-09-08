@@ -18,10 +18,11 @@ import org.springframework.hateoas.ResourceSupport;
 @Table(name = "Posts")
 public class TextModel extends ResourceSupport {
 
-	public TextModel(String text){
+/*	public TextModel(String text){
 	
 		this.text = text;	
 	}
+	*/
 	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
@@ -83,6 +84,16 @@ public class TextModel extends ResourceSupport {
 	     }
 	    public void setUserName(String userName){
 	     	this.userName = userName;
+	     	
+	     }
+	    
+public Timestamp getTimePosted(){
+	     	
+	     	return timePosted;
+	     }
+
+	    public void setTimePosted(Timestamp  timePosted){
+	     	this. timePosted =  timePosted;
 	     	
 	     }
 }
