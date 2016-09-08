@@ -1,0 +1,6 @@
+= My Document's Title
+
+My document provides...
+
+include::{snippets}/index/http-request.adoc[]
+include::{snippets}/index/http-response.adoc[]

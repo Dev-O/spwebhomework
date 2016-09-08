@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="textAppp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style>body { padding-top:50px; }</style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src= "js/angular-route.min.js"></script>
+    <script src= "js/angular-messages.js"></script>
+    <script src="js/app/approuter.js/"></script>
+    <script src="js/app/appcontroller.js/"></script>
+    <script src="js/dirPagination.js/"></script>
+  </head>
+  <body> 
+  <div >
+  
+   <!-- PAGE HEADER -->
+    <div Style="text-align:center" class="page-header"><h4> <a Style="text-align:center" href="#/userform"><b>User Text APP</b></a></h4></div>
+    <div ng-view=""></div>
+    </div>
+  </body>
+  
+</html>
